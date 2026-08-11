@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="SecondUse - Discover creative ways to give unwanted things a second life."
+    >
+
+    <title>SecondUse | Give Things a Second Life</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <a href="#home" class="logo">
+            <span>♻</span>
+            SecondUse
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#find">Find Ideas</a>
+            <a href="#items">My Items</a>
+            <a href="#impact">My Impact</a>
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                class="theme-btn"
+                id="themeToggle"
+                aria-label="Toggle dark mode"
+            >
+                🌙
+            </button>
+
+            <button
+                class="nav-add-btn"
+                onclick="scrollToAddItem()"
+            >
+                + Add Item
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <p class="eyebrow reveal">
+                    RETHINK • REUSE • REIMAGINE
+                </p>
+
+                <h1 class="reveal">
+                    Give your things
+                    <span>a second life.</span>
+                </h1>
+
+                <p class="hero-text reveal">
+                    Before you throw something away, discover what else
+                    it could become. Find creative ways to reuse the things
+                    you already have.
+                </p>
+
+                <div class="hero-buttons reveal">
+
+                    <a
+                        href="#find"
+                        class="primary-btn"
+                    >
+                        Find a Second Use →
+                    </a>
+
+                    <button
+                        class="secondary-btn"
+                        onclick="scrollToAddItem()"
+                    >
+                        Add My Item
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <div class="floating-leaf leaf-one">🍃</div>
+                <div class="floating-leaf leaf-two">🌿</div>
+
+                <div class="hero-card">
+
+                    <div class="jar-icon">
+                        🫙
+                    </div>
+
+                    <span class="small-label">
+                        SECOND LIFE
+                    </span>
+
+                    <h3>
+                        Glass Jar
+                    </h3>
+
+                    <p>
+                        Can become a
+                        <strong>Mini Plant Holder</strong>
+                    </p>
+
+                    <div class="score-mini">
+                        <span>Second-Life Score</span>
+                        <strong>86</strong>
+                    </div>
+
+                    <div class="card-bottom">
+                        <span>Easy</span>
+                        <span>10 mins</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section class="how-section">
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">
+                    HOW IT WORKS
+                </p>
+
+                <h2>
+                    Three steps. One less thing in the bin.
+                </h2>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step reveal">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Tell us what you have
+                    </h3>
+
+                    <p>
+                        Search for an item or add something
+                        you already have at home.
+                    </p>
+
+                </div>
+
+
+                <div class="step reveal">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Discover possibilities
+                    </h3>
+
+                    <p>
+                        Explore creative and practical ways
+                        to give your item another purpose.
+                    </p>
+
+                </div>
+
+
+                <div class="step reveal">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Give it a second life
+                    </h3>
+
+                    <p>
+                        Reuse it, save your favourite ideas,
+                        and track your impact.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FIND IDEAS ================= -->
+
+        <section
+            class="find-section"
+            id="find"
+        >
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">
+                    SECOND-LIFE FINDER
+                </p>
+
+                <h2>
+                    What do you have?
+                </h2>
+
+                <p>
+                    Search an item and discover what it could become.
+                </p>
+
+            </div>
+
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Try: bottle, t-shirt, box..."
+                    autocomplete="off"
+                    onkeydown="handleSearchKey(event)"
+                >
+
+                <button onclick="searchIdeas()">
+                    Find Ideas
+                </button>
+
+            </div>
+
+
+            <div class="search-tools">
+
+                <button
+                    class="filter-btn active"
+                    onclick="filterIdeas('all', this)"
+                >
+                    All
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="filterIdeas('Easy', this)"
+                >
+                    Easy
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="filterIdeas('Medium', this)"
+                >
+                    Medium
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="showFavorites()"
+                >
+                    ❤️ Favorites
+                </button>
+
+            </div>
+
+
+            <div
+                id="searchMessage"
+                class="search-message"
+            ></div>
+
+
+            <div
+                id="ideasContainer"
+                class="ideas-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ================= ADD ITEM ================= -->
+
+        <section
+            class="add-section"
+            id="add"
+        >
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">
+                    MY COLLECTION
+                </p>
+
+                <h2>
+                    Add something you already have.
+                </h2>
+
+                <p>
+                    Keep track of items waiting for their second life.
+                </p>
+
+            </div>
+
+
+            <form
+                id="itemForm"
+                class="item-form"
+            >
+
+                <div class="form-group">
+
+                    <label for="itemName">
+                        Item Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="itemName"
+                        placeholder="Example: Glass Jar"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="category">
+                            Category
+                        </label>
+
+                        <select
+                            id="category"
+                            required
+                        >
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="Glass">
+                                Glass
+                            </option>
+
+                            <option value="Plastic">
+                                Plastic
+                            </option>
+
+                            <option value="Paper">
+                                Paper
+                            </option>
+
+                            <option value="Metal">
+                                Metal
+                            </option>
+
+                            <option value="Textile">
+                                Textile
+                            </option>
+
+                            <option value="Wood">
+                                Wood
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="condition">
+                            Condition
+                        </label>
+
+                        <select
+                            id="condition"
+                            required
+                        >
+                            <option value="">
+                                Select condition
+                            </option>
+
+                            <option value="Good">
+                                Good
+                            </option>
+
+                            <option value="Usable">
+                                Usable
+                            </option>
+
+                            <option value="Damaged">
+                                Damaged
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="quantity">
+                            Quantity
+                        </label>
+
+                        <input
+                            type="number"
+                            id="quantity"
+                            min="1"
+                            value="1"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="description">
+                            Description
+                        </label>
+
+                        <input
+                            type="text"
+                            id="description"
+                            placeholder="Optional"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn form-btn"
+                >
+                    + Add to My Items
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= MY ITEMS ================= -->
+
+        <section
+            class="items-section"
+            id="items"
+        >
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">
+                    MY COLLECTION
+                </p>
+
+                <h2>
+                    Things waiting for a second life.
+                </h2>
+
+            </div>
+
+
+            <div
+                id="itemsContainer"
+                class="items-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ================= IMPACT ================= -->
+
+        <section
+            class="impact-section"
+            id="impact"
+        >
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    MY IMPACT
+                </p>
+
+                <h2>
+                    Your second-life journey.
+                </h2>
+
+            </div>
+
+
+            <div class="impact-grid">
+
+                <div class="impact-card">
+
+                    <span>♻</span>
+
+                    <strong id="reusedCount">
+                        0
+                    </strong>
+
+                    <p>
+                        Items Reused
+                    </p>
+
+                </div>
+
+
+                <div class="impact-card">
+
+                    <span>❤️</span>
+
+                    <strong id="favoriteCount">
+                        0
+                    </strong>
+
+                    <p>
+                        Saved Ideas
+                    </p>
+
+                </div>
+
+
+                <div class="impact-card">
+
+                    <span>📦</span>
+
+                    <strong id="totalItemsCount">
+                        0
+                    </strong>
+
+                    <p>
+                        Items Tracked
+                    </p>
+
+                </div>
+
+
+                <div class="impact-card highlight">
+
+                    <span>🌱</span>
+
+                    <strong id="secondLifeCount">
+                        0
+                    </strong>
+
+                    <p>
+                        Second Lives
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="impact-progress">
+
+                <div class="progress-top">
+
+                    <span>
+                        Your reuse progress
+                    </span>
+
+                    <strong id="progressText">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div
+                        id="progressFill"
+                        class="progress-fill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INSIGHT -->
+
+            <div
+                id="impactInsight"
+                class="impact-insight"
+            >
+                🌱 Start by adding your first item.
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            ♻ SecondUse
+        </div>
+
+        <p>
+            Small choices. Longer lives. Less waste.
+        </p>
+
+        <span>
+            SecondUse V1.5 • HTML • CSS • JavaScript
+        </span>
+
+    </footer>
+
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
